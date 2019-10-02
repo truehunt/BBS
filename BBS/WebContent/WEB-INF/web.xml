@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+
+<!-- <security-constraint>
+<web-resource-collection>
+<web-resource-name>PreventViewingJSPs</web-resource-name>
+            <description>브라우저로 접속한 사용자가 JSP파일로 직접 접근할 수 없도록 한다.</description>
+            <url-pattern>*.do</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+</web-resource-collection>
+<auth-constraint>
+</auth-constraint>
+</security-constraint>--> 
+
+	<display-name>BBS</display-name>
+	
+  <servlet>
+    <servlet-name>ControllerUsingURI</servlet-name>
+    <servlet-class>controller.ControllerUsingURI</servlet-class>
+    <init-param>
+         <param-name>configFile</param-name>
+         <param-value>/WEB-INF/commandHandlerURI.properties</param-value>
+	     </init-param>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ControllerUsingURI</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+   <welcome-file-list>
+	   <welcome-file>index.html</welcome-file>
+	   <welcome-file>index.htm</welcome-file>
+	   <welcome-file>index.jsp</welcome-file>
+	   <welcome-file>default.html</welcome-file>
+	   <welcome-file>default.htm</welcome-file>
+	   <welcome-file>default.jsp</welcome-file>
+  	</welcome-file-list>
+
+</web-app>
